@@ -7,7 +7,7 @@ patientsControler = (req,res) => {
 patientsControlerID = (req,res, next) =>{
     var id = parseInt(req.params.id) - 1
     var patient = patients[id]
-    console.log(patients.length, id)
+    console.log(id)
     res.status(200).json(patient)
 }
 
