@@ -1,11 +1,14 @@
-var data = require('../data/patients')
+var patients = require('../data/patients')
 
-exports.patientsControler = (req,res) => {
-    res.status(200).send(data)
+patientsControler = (req,res) => {
+    res.status(200).send(patients)
 }
 
-exports.patientsControlerID = (req,res) =>{
-    const id = req.params.id
-    const data = data[id]
-    res.status(200).send(data)
+patientsControlerID = (req,res, next) =>{
+    var id = parseInt(req.params.id) - 1
+    var patient = patients[id]
+    console.log(patients.length)
+    res.status(200).send(patient)
 }
+
+module.exports = {patientsControler, patientsControlerID}
